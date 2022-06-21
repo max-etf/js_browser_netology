@@ -17,16 +17,16 @@ class Game {
   }
 
   registerEvents() {
-    let currentSymbol = this.currentSymbol.textContent;
-    console.log(currentSymbol);
-    document.addEventListener('keydown',readkey)
-    //console.log(document.addEventListener('keydown',readkey));
-    function readkey(event) {
+    const readkey = (event) => {
+      let currentSymbol = this.currentSymbol.textContent;
       if (event.key === currentSymbol) {
-        console.log('aaaaaa'); 
-        this.success}
-      else this.fail 
-    }
+          console.log('aaaaaa');
+          this.success()
+      } else {
+          this.fail()
+      }
+  };
+  document.addEventListener('keydown', readkey)
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -97,4 +97,3 @@ class Game {
 }
 
 new Game(document.getElementById('game'))
-
